@@ -1,0 +1,5 @@
+modin[ray]
+pandas-gbq==0.17.*
+google-cloud-bigquery-storage 
+pyarrow 
+lxml
