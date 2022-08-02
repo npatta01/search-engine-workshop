@@ -14,6 +14,14 @@ sudo apt update && sudo apt install -y p7zip-full
 
 
 
+```
+conda create -n stackoverflow python=3.8 mamba
+conda activate stackoverflow
+mamba install anaconda jupyter ipykernel nb_conda_kernels
+
+```
+
+
 
 elastic search
 ```

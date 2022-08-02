@@ -1,0 +1,18 @@
+name: stackoverflow
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - mamba
+  - nb_conda_kernels
+  - modin[ray]
+  - pyarrow
+  - lxml
+  - pip:
+      - pandas-gbq==0.17.*
+      - git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
+      - google-cloud-bigquery-storage 
+
+
+ 
+

@@ -3,3 +3,4 @@ pandas-gbq==0.17.*
 google-cloud-bigquery-storage 
 pyarrow 
 lxml
+git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]

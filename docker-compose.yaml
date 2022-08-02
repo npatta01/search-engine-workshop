@@ -8,3 +8,7 @@ services:
       - "discovery.type=single-node"
     ports:
       - 9200:9200
+    volumes:
+        - esdata:/usr/share/elasticsearch/data
+volumes:
+  esdata:
