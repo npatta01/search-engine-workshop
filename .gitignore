@@ -130,3 +130,9 @@ dmypy.json
 
 
 data/
+
+
+workshop_infra/cert/*
+workshop_infra/config.yaml
+
+!/**/.gitkeep

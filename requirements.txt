@@ -1,6 +1,6 @@
-modin[ray]
+modin[ray]=0.16.*
 pandas-gbq==0.17.*
-google-cloud-bigquery-storage 
-pyarrow 
-lxml
-git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
+google-cloud-bigquery-storage==2.16.* 
+pyarrow==9.0.* 
+lxml==4.9.*
+#git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]

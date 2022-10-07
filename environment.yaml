@@ -1,18 +1,17 @@
-name: stackoverflow
+#name: workshop
 channels:
   - conda-forge
 dependencies:
-  - python=3.8
+  - python==3.10.*
+  - pip
   - mamba
   - nb_conda_kernels
-  - modin[ray]
-  - pyarrow
-  - lxml
+  - pyarrow==9.0.* 
+  - lxml==4.9.*
   - pip:
-      - pandas-gbq==0.17.*
-      - git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
-      - google-cloud-bigquery-storage 
+      #- pandas-gbq==0.17.*
+      #- git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
+      - google-cloud-bigquery-storage==2.16.* 
+      - modin[ray]
 
-
- 
 
