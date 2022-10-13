@@ -44,6 +44,15 @@ singleuser:
           image: elasticsearch:8.4.3
         - name: milvus
           image: milvusdb/milvus:2.1.0-latest
+        - name: weaviate
+          image: semitechnologies/weaviate:1.14.0
+          env:
+            QUERY_DEFAULTS_LIMIT: 25
+            AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
+            PERSISTENCE_DATA_PATH: /var/lib/weaviate
+            DEFAULT_VECTORIZER_MODULE: none
+            ENABLE_MODULES: ""
+            CLUSTER_HOSTNAME: node1
 # proxy:
 #   https:
 #     enabled: true
@@ -72,7 +81,8 @@ hub:
             admin_users:
                 - npatta01
                 - vishalkumar95
-                - reshamas
+                - mzengin
+                - rkyadav-ncsu
         GitHubOAuthenticator:
             client_id: ENC[AES256_GCM,data:Af0qVw8uUkPGgukNRUihE/v6Yxw=,iv:glsdWx5z0/cJ1PKZUQp+7LvDpi2pn4RGkKIza0sP7rA=,tag:bWW55KyWY+Sh4ECtdsUGlw==,type:str]
             client_secret: ENC[AES256_GCM,data:/JyxvL2uXAd1/I45blHoOq8cfco58SnqtLdbDfnPNRakJuch4ShW1g==,iv:+xoS5twfpnX+2xduZMQNTcffqcuaLWIIsss/8Whvn00=,tag:RG4cuZjt8TookMgnXWHL1A==,type:str]
@@ -88,8 +98,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-10-13T23:23:47Z"
-    mac: ENC[AES256_GCM,data:6paD7TAVCLDFXWbCRdbwxsxHGSq8U2MiYS7YLpU3vGk+MgJiIBWvkTYB/5zE89h3NqgH9gXhnQlKRGUKuC9ZfGvsTecZTwQ+tgCN0mskfkx8LNCvSfazpRQShi7Cwegg7slrVOF/DB7+rvmYQNdagLGF966LvemvnagV5Nw+pLM=,iv:bDgiXXdKHyYeR8iB0ffQ3RJzjc1Vd4Cr+GMP/To+6VY=,tag:BQ8Dd2i8fNXS9HrP8nP+Ew==,type:str]
+    lastmodified: "2022-10-13T23:49:12Z"
+    mac: ENC[AES256_GCM,data:KJ0y4UieLvRCQoZlXP+NhunrKKOxiWfpz4lVsDnF7BaiWJsiCSSU7B+QQshpr8KvAc4rnKML1SB8a0VYi9/jm37M0iHXAlDiCyIIfHxqDc7XlDckyUysGpG87FcVmXQWq+XW4KtSHrYWrtZss8YdJmANUp3EWMZTdHfpqYz22TE=,iv:AhqfhbRTCLvpzA5Y6WqQTlii0R7GKHnjw/MPcFBQDWM=,tag:QjZJLUiWaSFw83qIIeEmLw==,type:str]
     pgp: []
     encrypted_regex: ^(client_id|client_secret)$
     version: 3.7.3
