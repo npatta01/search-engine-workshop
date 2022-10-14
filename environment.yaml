@@ -11,7 +11,13 @@ dependencies:
   - pip:
       #- pandas-gbq==0.17.*
       #- git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
-      - google-cloud-bigquery-storage==2.16.* 
+      - google-cloud-bigquery-storage 
+
+#- google-cloud-bigquery-storage==2.16.* 
       - modin[ray]
+      - pymilvus==1.1.0
+      - elasticsearch==8.4.*
+      - weaviate-client==3.8.0
+#      - milvus==2.1.*
 
 

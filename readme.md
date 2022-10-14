@@ -28,3 +28,6 @@ elastic search
 
 
 ```
+
+
+# docker run --user root -e GRANT_SUDO=yes -it app bash
