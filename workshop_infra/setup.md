@@ -185,6 +185,7 @@ replace values in [config.yaml](workshop_infra/config.yaml)
 ## Step 6: Helm Install with authentication
 
 setup with authentication and git oauth
+
 ```bash
 helm upgrade --cleanup-on-fail \
   --install $HELM_NAMESPACE jupyterhub/jupyterhub \
@@ -226,6 +227,11 @@ add the external ip to dns
 ```bash
 
 helm delete $HELM_NAMESPACE --namespace $HELM_NAMESPACE 
+kubectl delete namespace $HELM_NAMESPACE 
+
+helm delete $HELM_NAMESPACE-public --namespace $HELM_NAMESPACE-public
+kubectl delete namespace $HELM_NAMESPACE-public
+
 
 gcloud container clusters  delete $CLUSTER_NAME  --region $REGION   --project $GCP_PROJECT
 

@@ -29,9 +29,9 @@ singleuser:
         # https://github.com/jupyter/docker-stacks/tree/HEAD/datascience-notebook/Dockerfile
         name: gcr.io/np-public-training/semantic-search-workshop
         tag: v1.0
-    defaultUrl: /lab
-    extraEnv:
-        JUPYTERHUB_SINGLEUSER_APP: jupyter_server.serverapp.ServerApp
+    #defaultUrl: /lab
+    #extraEnv:
+    #    JUPYTERHUB_SINGLEUSER_APP: jupyter_server.serverapp.ServerApp
     lifecycleHooks:
         postStart:
             exec:
@@ -42,17 +42,30 @@ singleuser:
     extraContainers:
         - name: elastic-search
           image: elasticsearch:8.4.3
+          env:
+            - name: discovery.type
+              value: single-node
+            - name: xpack.security.enabled
+              value: "false"
+            - name: ES_JAVA_OPTS
+              value: -Xms1g -Xmx1g
         - name: milvus
-          image: milvusdb/milvus:2.1.0-latest
+          image: milvusdb/milvus:1.1.1-cpu-d061621-330cc6
         - name: weaviate
           image: semitechnologies/weaviate:1.14.0
           env:
-            QUERY_DEFAULTS_LIMIT: 25
-            AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
-            PERSISTENCE_DATA_PATH: /var/lib/weaviate
-            DEFAULT_VECTORIZER_MODULE: none
-            ENABLE_MODULES: ""
-            CLUSTER_HOSTNAME: node1
+            - name: QUERY_DEFAULTS_LIMIT
+              value: "25"
+            - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+              value: "true"
+            - name: PERSISTENCE_DATA_PATH
+              value: /var/lib/weaviate
+            - name: DEFAULT_VECTORIZER_MODULE
+              value: none
+            - name: ENABLE_MODULES
+              value: ""
+            - name: CLUSTER_HOSTNAME
+              value: node1
 # proxy:
 #   https:
 #     enabled: true
@@ -74,7 +87,7 @@ proxy:
         secret:
             name: workshop-tls
     service:
-        loadBalancerIP: 35.188.254.55
+        loadBalancerIP: 34.102.54.34
 hub:
     config:
         Authenticator:
@@ -98,8 +111,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-10-13T23:49:12Z"
-    mac: ENC[AES256_GCM,data:KJ0y4UieLvRCQoZlXP+NhunrKKOxiWfpz4lVsDnF7BaiWJsiCSSU7B+QQshpr8KvAc4rnKML1SB8a0VYi9/jm37M0iHXAlDiCyIIfHxqDc7XlDckyUysGpG87FcVmXQWq+XW4KtSHrYWrtZss8YdJmANUp3EWMZTdHfpqYz22TE=,iv:AhqfhbRTCLvpzA5Y6WqQTlii0R7GKHnjw/MPcFBQDWM=,tag:QjZJLUiWaSFw83qIIeEmLw==,type:str]
+    lastmodified: "2022-10-14T09:46:47Z"
+    mac: ENC[AES256_GCM,data:mNXOW/vkT8aSjHvJad5rur53YoPHNZxOHv/E1Gzxaqqw2SkfHkQqKOoQBqvAC3yH0rQwWe/kQGCyrSwfswMufBqhGH+0Jii9yTypP/hPF1p4RyeQWiyKbQ3e6+thQsaUbL5xi5YgyK3f8f+Ko9C/AYdJF+9UwXG3O/WbPjmbCvw=,iv:Ts7Ivz3mebgRVBnRFqFPG3hvEnNfeP9ryeySzbJVyNE=,tag:HkofOna0b8Z2aPM/iXRLRg==,type:str]
     pgp: []
     encrypted_regex: ^(client_id|client_secret)$
     version: 3.7.3
