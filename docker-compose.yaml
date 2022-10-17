@@ -17,6 +17,9 @@ services:
     ports:
       - 19530:19530 
       - 19121:19121
+    volumes:
+        - milvusdata:/var/lib/milvus
+        
   weaviate:
     image: semitechnologies/weaviate:1.14.0
     ports:
@@ -27,6 +30,10 @@ services:
         PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
         DEFAULT_VECTORIZER_MODULE: 'none'
         ENABLE_MODULES: ''
-        CLUSTER_HOSTNAME: 'node1'        
+        CLUSTER_HOSTNAME: 'node1'  
+    volumes:
+      - weaviatedata:/var/lib/weaviate
 volumes:
   esdata:
+  weaviatedata:
+  milvusdata:

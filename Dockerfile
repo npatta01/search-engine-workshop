@@ -31,6 +31,9 @@ RUN bash /tmp/setup.sh
 USER $NB_UID
 
 
+COPY --chown=${NB_UID}:${NB_GID} notebooks notebooks
+
+
 #COPY --chown=${NB_UID}:${NB_GID} docker-setup.sh /tmp/
 
 #COPY --chown=${NB_UID}:${NB_GID} setup.ipynb /tmp/
