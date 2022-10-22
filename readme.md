@@ -1,33 +1,47 @@
+# Search Engine Workshop
 
 
-```
+## About
 
-wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 0 --continue https://archive.org/download/stackexchange/stackoverflow.com-Posts.7z
-
-```
-
-```
-sudo apt update && sudo apt install -y p7zip-full
-
-7z x stackoverflow.com-Posts.7z
-```
+Handson workshop for building a semantic search engine.
 
 
 
-```
-conda create -n stackoverflow python=3.8 mamba
-conda activate stackoverflow
-mamba install anaconda jupyter ipykernel nb_conda_kernels
-ipython kernel install --user --name=stackoverflow
-```
+
+## Setup 
+
+If you came to this repo, during a workshop visit this custom [jupyter hub](http://hub.np.training) with all the dependencies already set up.
 
 
 
-elastic search
-```
+Otherwise, consider using [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/npatta01/search-engine-workshop/main)
 
 
-```
+## Content
+
+1. Data Processing   
+[notebook](notebooks/01_b_setup.ipynb)
+Fetch StackOverflow XML dump file and process it
+
+2. Non Deep Learning Retrieval    
+   [Indexing](notebooks/02_indexing_es.ipynb) , [Searching](notebooks/03_searching_es.ipynb) 
+
+3. Deep Learning Retrieval   
+   [Indexing](notebooks/02_indexing_faiss.ipynb) , [Searching](notebooks/03_searching_faiss.ipynb) 
 
 
-# docker run --user root -e GRANT_SUDO=yes -it app bash
+
+## Slides
+
+[Slides][assets/slides.pdf) 
+
+
+[![Watch the video](assets/slides_cover.png)](https://www.slideshare.net/nidhinpattaniyil/serving-bert-models-in-production-with-torchserve)
+
+
+## Contact
+
+For help or feedback, please reach out to :
+
+- [Nidhin Pattaniyil](https://www.linkedin.com/in/nidhinpattaniyil/)   
+- [Vishal Rathi](https://www.linkedin.com/in/vishalkumarrathi/)   
