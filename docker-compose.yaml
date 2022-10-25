@@ -11,14 +11,26 @@ services:
     volumes:
         - esdata:/usr/share/elasticsearch/data
         
+#   milvus:
+#     container_name: milvus
+#     image: milvusdb/milvus:1.1.1-cpu-d061621-330cc6
+#     ports:
+#       - 19530:19530 
+#       - 19121:19121
+#     volumes:
+#         - milvusdata:/var/lib/milvus
+
+
   milvus:
     container_name: milvus
-    image: milvusdb/milvus:1.1.1-cpu-d061621-330cc6
+    build:
+      context: docker_milvus    
     ports:
       - 19530:19530 
       - 19121:19121
     volumes:
         - milvusdata:/var/lib/milvus
+ 
         
   weaviate:
     image: semitechnologies/weaviate:1.14.0
