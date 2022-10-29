@@ -74,3 +74,9 @@ For help or feedback, please reach out to :
 - show examples of similar embedding
 - how to deal with long passages
 - u may not need semantic search, might get away eith doc2query
+
+
+Go to DIR: /projects/search-engine-workshop
+Type: docker-compose up
+
+In the notebooks test... checks the milvus and elastic connections
