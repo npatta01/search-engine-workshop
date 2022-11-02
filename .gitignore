@@ -137,5 +137,6 @@ workshop_infra/config.yaml
 
 *.db
 tmp/
+.DS_Store
 
 !/**/.gitkeep

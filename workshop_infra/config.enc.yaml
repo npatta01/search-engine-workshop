@@ -50,7 +50,7 @@ singleuser:
             - name: ES_JAVA_OPTS
               value: -Xms1g -Xmx1g
         - name: milvus
-          image: milvusdb/milvus:1.1.1-cpu-d061621-330cc6
+          image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
         - name: weaviate
           image: semitechnologies/weaviate:1.14.0
           env:
@@ -111,8 +111,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-10-14T09:46:47Z"
-    mac: ENC[AES256_GCM,data:mNXOW/vkT8aSjHvJad5rur53YoPHNZxOHv/E1Gzxaqqw2SkfHkQqKOoQBqvAC3yH0rQwWe/kQGCyrSwfswMufBqhGH+0Jii9yTypP/hPF1p4RyeQWiyKbQ3e6+thQsaUbL5xi5YgyK3f8f+Ko9C/AYdJF+9UwXG3O/WbPjmbCvw=,iv:Ts7Ivz3mebgRVBnRFqFPG3hvEnNfeP9ryeySzbJVyNE=,tag:HkofOna0b8Z2aPM/iXRLRg==,type:str]
+    lastmodified: "2022-11-02T00:36:48Z"
+    mac: ENC[AES256_GCM,data:7nkDm9mwQIcW6nOGibvFsi8zIOZdNHA+ugURjgey0tZVXnYustFcL656AMx5q64k1l7Th7IJRbChbHfFkyXQFyOd3jPCDcqSzo8TDHSelXFPUkGIoGTe4ais7KUT8nQOjOyt3vUt4Or8tcuoZ3nP+dyEl83SB6QVMeLNYi55wAg=,iv:E+rMFA7rQQdroivfCg+zuVF6gaeriz4shzzbrjKYw54=,tag:i3etFRxBWZ5nv5D2nKKzNA==,type:str]
     pgp: []
     encrypted_regex: ^(client_id|client_secret)$
     version: 3.7.3

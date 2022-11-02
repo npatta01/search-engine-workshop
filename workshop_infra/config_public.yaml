@@ -24,7 +24,7 @@ singleuser:
         guarantee: 8G
     image:
         name: gcr.io/np-public-training/semantic-search-workshop
-        tag: v1.0
+        tag: v1.1
     #defaultUrl: /lab
     #extraEnv:
     #    JUPYTERHUB_SINGLEUSER_APP: jupyter_server.serverapp.ServerApp
@@ -47,7 +47,7 @@ singleuser:
                 -   name: ES_JAVA_OPTS
                     value: "-Xms1g -Xmx1g"
         -   name: milvus
-            image: milvusdb/milvus:1.1.1-cpu-d061621-330cc6
+            image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
         -   name: weaviate
             image: semitechnologies/weaviate:1.14.0
             env:

@@ -91,6 +91,7 @@ gcloud beta container node-pools create user-pool \
   --max-nodes $NODES_MAX \
   --node-labels hub.jupyter.org/node-purpose=user \
   --node-taints hub.jupyter.org_dedicated=user:NoSchedule \
+  --scopes "https://www.googleapis.com/auth/cloud-platform" \
   --region $REGION \
   --cluster $CLUSTER_NAME  \
   --project $GCP_PROJECT
