@@ -1,3 +1,6 @@
 data/
-workshop_infra
+workshop_infra/
+!workshop_infra/scripts/
+
+
 
