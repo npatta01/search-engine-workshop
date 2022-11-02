@@ -2,24 +2,31 @@
 channels:
   - conda-forge
 dependencies:
-  - python==3.10.*
+  - python==3.7.*
   - pip
   - mamba
   - nb_conda_kernels
   - pyarrow==9.0.* 
   - lxml==4.9.*
   - pip:
-      #- pandas-gbq==0.17.*
-      #- git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
       - google-cloud-bigquery-storage 
-
-#- google-cloud-bigquery-storage==2.16.* 
-      #- modin[ray]
-      # - pymilvus==1.1.0
       - elasticsearch==8.4.*
       - weaviate-client==3.8.0
       - pandarallel==1.6.*
       - milvus==2.1.*
       - rich==12.6.*
+      - jupyterlab-execute-time==2.1.*
+      - sentence-transformers==2.2.*
+      - ipywidgets==8.0.*
+      - pyarrow==10.0.*
+      - gcsfs==2022.10.*
 
 
+
+
+# 
+#- google-cloud-bigquery-storage==2.16.* 
+      #- modin[ray]
+      # - pymilvus==1.1.0
+      #- pandas-gbq==0.17.*
+      #- git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]

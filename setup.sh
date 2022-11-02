@@ -12,3 +12,10 @@ apt-get install --yes --no-install-recommends build-essential libsasl2-dev gfort
 #python -c "import milvus; milvus.before()"
 
 #bash /var/bin/e-milvus/lib/install_deps.sh
+
+
+
+EXPORT CLOUDSDK_CORE_DISABLE_PROMPTS=1 
+
+curl https://sdk.cloud.google.com > install.sh
+bash install.sh --disable-prompts
