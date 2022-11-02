@@ -128,6 +128,19 @@ kubectl create secret tls $HELM_NAMESPACE-tls --key="tls.key" --cert="tls.crt" -
 cd ../../
 ```
 
+
+download storage key
+
+```
+gcloud iam service-accounts keys create workshop_infra/keyfile.json \
+    --iam-account=public-storage-reader-sa@np-public-training.iam.gserviceaccount.com
+
+kubectl create secret generic gcsfs-creds --from-file=workshop_infra/keyfile.json --namespace $HELM_NAMESPACE
+
+
+
+```
+
 ## Step 4: Helm setup
 
 ```bash
@@ -182,6 +195,9 @@ workshop_infra/config.yaml > workshop_infra/config.enc.yaml
 ```bash
 sops --decrypt workshop_infra/config.enc.yaml > workshop_infra/config.yaml
 ```
+
+
+
 
 
 replace values in [config.yaml](workshop_infra/config.yaml)
