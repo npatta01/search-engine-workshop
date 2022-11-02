@@ -1,5 +1,6 @@
 
-FROM jupyter/scipy-notebook:python-3.10.6
+#FROM jupyter/scipy-notebook:python-3.10.6
+FROM jupyter/scipy-notebook:python-3.7.12
 
 
 
@@ -31,7 +32,7 @@ RUN bash /tmp/setup.sh
 USER $NB_UID
 
 
-COPY --chown=${NB_UID}:${NB_GID} notebooks notebooks
+COPY --chown=${NB_UID}:${NB_GID} notebooks /tmp/workshop/
 
 
 #COPY --chown=${NB_UID}:${NB_GID} docker-setup.sh /tmp/

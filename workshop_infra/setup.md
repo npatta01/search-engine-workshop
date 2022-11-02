@@ -153,6 +153,17 @@ docker push gcr.io/$GCP_PROJECT/semantic-search-workshop:v1.0
 
 ```
 
+build milvus
+
+```bash
+cd docker_milvus
+
+docker build -t gcr.io/$GCP_PROJECT/custom-milvus:v2.1.4-1 .
+docker push gcr.io/$GCP_PROJECT/custom-milvus:v2.1.4-1 
+echo "gcr.io/$GCP_PROJECT/custom-milvus:v2.1.4-1 "
+cd ..
+```
+
 encrypt setup
 
 ```bash
