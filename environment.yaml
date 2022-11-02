@@ -20,7 +20,9 @@ dependencies:
       - ipywidgets==8.0.*
       - pyarrow==10.0.*
       - gcsfs==2022.10.*
-
+      - papermill==2.3.*
+      - rank_bm25==0.2.*
+      - faiss_cpu==1.7.*
 
 
 

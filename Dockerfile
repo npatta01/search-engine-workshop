@@ -24,15 +24,21 @@ RUN mamba env update -n base -f /tmp/environment.yaml && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-COPY --chown=${NB_UID}:${NB_GID} setup.sh /tmp/
+COPY --chown=${NB_UID}:${NB_GID} workshop_infra/scripts /tmp/scripts/
 
 USER root
 
-RUN bash /tmp/setup.sh
+RUN bash /tmp/scripts/build_setup_root.sh
 USER $NB_UID
 
 
-COPY --chown=${NB_UID}:${NB_GID} notebooks /tmp/workshop/
+COPY --chown=${NB_UID}:${NB_GID} notebooks/workshop_setup.ipynb /tmp/workshop/notebooks/
+
+RUN bash /tmp/scripts/build_setup_user.sh
+
+COPY --chown=${NB_UID}:${NB_GID} . /tmp/workshop/
+
+ENV PATH="/opt/google-cloud-sdk/bin:${PATH}" 
 
 
 #COPY --chown=${NB_UID}:${NB_GID} docker-setup.sh /tmp/

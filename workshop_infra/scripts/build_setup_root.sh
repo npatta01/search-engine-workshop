@@ -18,4 +18,4 @@ apt-get install --yes --no-install-recommends build-essential libsasl2-dev gfort
 EXPORT CLOUDSDK_CORE_DISABLE_PROMPTS=1 
 
 curl https://sdk.cloud.google.com > install.sh
-bash install.sh --disable-prompts
+bash install.sh --disable-prompts --install-dir=/opt 
