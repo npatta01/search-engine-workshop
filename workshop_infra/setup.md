@@ -118,14 +118,19 @@ I bought a wildcard cert from Namecheap
 Download my cert and create a kubectl cert
 ```bash
 
-cd workshop_infra/cert
-
-gsutil cp "gs://np-training-private/certs/_star.np.training/*" .
-
 kubectl create namespace $HELM_NAMESPACE
 
-kubectl create secret tls $HELM_NAMESPACE-tls --key="tls.key" --cert="tls.crt" --namespace $HELM_NAMESPACE
+
+
+
+gsutil cp "gs://np-training-private/certs/_star.np.training/*" workshop_infra/cert
+
+
+kubectl create namespace $HELM_NAMESPACE 
+cd workshop_infra/cert  
+kubectl create secret tls $HELM_NAMESPACE-tls --key="tls.key" --cert="tls.crt" --namespace $HELM_NAMESPACE 
 cd ../../
+
 ```
 
 
