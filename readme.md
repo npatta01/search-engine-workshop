@@ -28,25 +28,30 @@ Internal notebooks that show how to fetch a dump of the Stack Overflow XML
 [notebook](notebooks/01_b_setup.ipynb)
 Process the XML dump and save to smaller parquet files
 
-2. Non Deep Learning Retrieval
+3. Non Deep Learning Retrieval
 
-[Link](notebooks/02_indexing_es.ipynb)
+[Link](notebooks/02_retrieval_sparse.ipynb)
 
 Shows how to index and retrieve documents using ElasticSearch
 
-3. Deep Learning Retrieval
+4. Deep Learning Retrieval
 
 Show how to index and retrieves documents using a finetuned Deep Learning Retriever
-[Link](notebooks/02_indexing_faiss.ipynb) 
+[Link](notebooks/02_retrieval_dense_milvus.ipynb) 
 
-4. ANN
+Sample notebook for scross encoder taken from SentenceTransformer docs
+[Link](notebooks/other__retrieve_rerank_simple_wikipedia.ipynb) 
+
+5. ANN
 Shows how to speed up Deep Learning retrieval by exploring different ANN indexes
+[Link](notebooks/ann_benchmark_recall.ipynb) 
+
 
 
 
 ## Slides
 
-[Slides][assets/slides.pdf) 
+[ODSC 2022 Slides][assets/slides_odsc2022.pdf) 
 
 
 ## Contact
@@ -59,29 +64,4 @@ For help or feedback, please reach out to :
 
 
 
-## Other
-- compare against tf-idf
-- elastic search phrase match 
-- elastic search autocomplete / spellcheck / facets
-- weaviate indexing 
-- faiss ann indexes
-- faiss ann retrieval / recall slowness
 
-- backup elastic search cluster
-- show individual document score
-- show how document score changes a bit when hitting all shards
-
-- show examples of similar embedding
-- how to deal with long passages
-- u may not need semantic search, might get away eith doc2query
-
-
-Go to DIR: /projects/search-engine-workshop
-Type: docker-compose up
-
-In the notebooks test... checks the milvus and elastic connections
-
-
-```
-gsutil -m cp -r gs://np-training-tmp/stackoverflow/final* gs://np-public-training-temp/stackoverflow/
-```
