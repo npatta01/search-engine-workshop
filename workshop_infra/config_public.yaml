@@ -1,0 +1,78 @@
+# https://zero-to-jupyterhub.readthedocs.io/en/latest/administrator/optimization.html#optimization
+scheduling:
+    userScheduler:
+        enabled: true
+    podPriority:
+        enabled: true
+    userPlaceholder:
+        enabled: true
+        # Specify five dummy user pods will be used as placeholders
+        replicas: 1
+    userPods:
+        nodeAffinity:
+            matchNodePurpose: require
+cull:
+    enabled: true
+    timeout: 3600
+    every: 300
+singleuser:
+    cpu:
+        limit: 4
+        guarantee: 2
+    memory:
+        limit: 16G
+        guarantee: 8G
+    image:
+        name: gcr.io/np-public-training/semantic-search-workshop
+        tag: v1.1
+    #defaultUrl: /lab
+    #extraEnv:
+    #    JUPYTERHUB_SINGLEUSER_APP: jupyter_server.serverapp.ServerApp
+    lifecycleHooks:
+        postStart:
+            exec:
+                command:
+                    - sh
+                    - -c
+                    - "cp -r /tmp/workshop /home/jovyan; \npwd\n"
+
+    extraContainers:
+        -   name: elastic-search
+            image: elasticsearch:8.4.3
+            env:
+                -   name: discovery.type
+                    value: single-node
+                -   name: "xpack.security.enabled"
+                    value: "false"
+                -   name: ES_JAVA_OPTS
+                    value: "-Xms1g -Xmx1g"
+        -   name: milvus
+            image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
+        -   name: weaviate
+            image: semitechnologies/weaviate:1.14.0
+            env:
+                -   name: QUERY_DEFAULTS_LIMIT
+                    value: "25"
+                -   name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+                    value: "true"
+                -   name: PERSISTENCE_DATA_PATH
+                    value: /var/lib/weaviate
+                -   name: DEFAULT_VECTORIZER_MODULE
+                    value: none
+                -   name: ENABLE_MODULES
+                    value: ""
+                -   name: CLUSTER_HOSTNAME
+                    value: node1
+
+hub:
+    config:
+        Authenticator:
+            admin_users:
+                - npatta01
+                - vishalkumar95
+                - mzengin
+                - rkyadav-ncsu
+
+# proxy:
+#     service:
+#         loadBalancerIP: 34.102.54.34

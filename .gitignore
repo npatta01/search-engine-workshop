@@ -127,3 +127,18 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+data/
+
+
+workshop_infra/cert/*
+workshop_infra/config.yaml
+workshop_infra/key_file.json
+
+*.db
+tmp/
+.DS_Store
+
+!/**/.gitkeep
+workshop_infra/keyfile.json

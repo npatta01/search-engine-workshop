@@ -1,0 +1,130 @@
+# https://zero-to-jupyterhub.readthedocs.io/en/latest/administrator/optimization.html#optimization
+scheduling:
+    userScheduler:
+        enabled: true
+    podPriority:
+        enabled: true
+    userPlaceholder:
+        enabled: true
+        # Specify five dummy user pods will be used as placeholders
+        replicas: 5
+    userPods:
+        nodeAffinity:
+            matchNodePurpose: require
+cull:
+    enabled: true
+    timeout: 3600
+    every: 300
+singleuser:
+    cpu:
+        limit: 8
+        guarantee: 8
+    memory:
+        limit: 16G
+        guarantee: 8G
+    image:
+        # You should replace the "latest" tag with a fixed version from:
+        # https://hub.docker.com/r/jupyter/datascience-notebook/tags/
+        # Inspect the Dockerfile at:
+        # https://github.com/jupyter/docker-stacks/tree/HEAD/datascience-notebook/Dockerfile
+        name: gcr.io/np-public-training/semantic-search-workshop
+        tag: v1.0
+    #defaultUrl: /lab
+    extraEnv:
+        GOOGLE_APPLICATION_CREDENTIALS: /etc/secrets/keyfile.json
+    storage:
+        extraVolumes:
+            - name: gcsfs-creds
+              secret:
+                secretName: gcsfs-creds
+                items:
+                    - key: keyfile.json
+                      path: keyfile.json
+        extraVolumeMounts:
+            - name: gcsfs-creds
+              mountPath: /etc/secrets
+              readOnly: true
+    lifecycleHooks:
+        postStart:
+            exec:
+                command:
+                    - sh
+                    - -c
+                    - bash /tmp/workshop/workshop_infra/scripts/container_startup.sh
+    extraContainers:
+        - name: elastic-search
+          image: elasticsearch:8.4.3
+          env:
+            - name: discovery.type
+              value: single-node
+            - name: xpack.security.enabled
+              value: "false"
+            - name: ES_JAVA_OPTS
+              value: -Xms1g -Xmx1g
+        - name: milvus
+          image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
+        - name: weaviate
+          image: semitechnologies/weaviate:1.14.0
+          env:
+            - name: QUERY_DEFAULTS_LIMIT
+              value: "25"
+            - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+              value: "true"
+            - name: PERSISTENCE_DATA_PATH
+              value: /var/lib/weaviate
+            - name: DEFAULT_VECTORIZER_MODULE
+              value: none
+            - name: ENABLE_MODULES
+              value: ""
+            - name: CLUSTER_HOSTNAME
+              value: node1
+# proxy:
+#   https:
+#     enabled: true
+#     hosts:
+#       - hub.np.training
+#     letsencrypt:
+#       contactEmail: npatta01@gmail.com
+#   service:
+#     loadBalancerIP: "34.145.156.81"
+# proxy:
+#   service:
+#     loadBalancerIP: "34.145.156.81"
+proxy:
+    https:
+        enabled: true
+        hosts:
+            - hub.np.training
+        type: secret
+        secret:
+            name: workshop-tls
+    service:
+        loadBalancerIP: 34.102.71.215
+hub:
+    config:
+        Authenticator:
+            admin_users:
+                - npatta01
+                - vishalkumar95
+                - mzengin
+                - rkyadav-ncsu
+        GitHubOAuthenticator:
+            client_id: ENC[AES256_GCM,data:Af0qVw8uUkPGgukNRUihE/v6Yxw=,iv:glsdWx5z0/cJ1PKZUQp+7LvDpi2pn4RGkKIza0sP7rA=,tag:bWW55KyWY+Sh4ECtdsUGlw==,type:str]
+            client_secret: ENC[AES256_GCM,data:/JyxvL2uXAd1/I45blHoOq8cfco58SnqtLdbDfnPNRakJuch4ShW1g==,iv:+xoS5twfpnX+2xduZMQNTcffqcuaLWIIsss/8Whvn00=,tag:RG4cuZjt8TookMgnXWHL1A==,type:str]
+            oauth_callback_url: https://hub.np.training/hub/oauth_callback
+        JupyterHub:
+            authenticator_class: github
+sops:
+    kms: []
+    gcp_kms:
+        - resource_id: projects/np-public-training/locations/global/keyRings/sops/cryptoKeys/sops-key
+          created_at: "2022-10-13T23:23:47Z"
+          enc: CiQAtA68IX63yVjyNNzcuN6oxKMDvZI/hnlne6POMs/AToxGvoUSSQDOyIoWf1EgyIyvrp486rhLw/G2J+YuUkobdqfonbEr5Tss0E60rJY5vCtgqzes+/7aunlxPDTU5zngKhkH/vP7dz/z69G3ZmQ=
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-11-02T07:31:42Z"
+    mac: ENC[AES256_GCM,data:X4n596GjkZ8aRAd13xBIRtGwyKITIVcAb2bLT18vkCtpNm4PfcNyizffKcucNWO1i9UtQeDC0nTN7BVlu63UUANQxhla47XCYwBbivb/cq6HTg9qWn1d2AT6hnn/ffM+YuKqPK6cQIxAlD8tPQaYq0GJo6yaE7d9xnJjAQAYv14=,iv:hpKiQEtAx3L9m+t4VM0pJyE4BJBu9NpyzuoOVIj+VzI=,tag:maSfVUWHRVkB8oMQGbo7TQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(client_id|client_secret)$
+    version: 3.7.3
