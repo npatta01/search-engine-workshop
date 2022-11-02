@@ -14,11 +14,12 @@ dependencies:
       - google-cloud-bigquery-storage 
 
 #- google-cloud-bigquery-storage==2.16.* 
-      - modin[ray]
+      #- modin[ray]
       # - pymilvus==1.1.0
       - elasticsearch==8.4.*
       - weaviate-client==3.8.0
       - pandarallel==1.6.*
       - milvus==2.1.*
+      - rich==12.6.*
 
 
