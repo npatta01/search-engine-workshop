@@ -38,5 +38,14 @@ docker run --user root -e GRANT_SUDO=yes -it app bash
 
 
 ```
+Go to DIR: /projects/search-engine-workshop
+Type: docker-compose up
+
+In the notebooks test... checks the milvus and elastic connections
+
+
+```
+gsutil -m cp -r gs://np-training-tmp/stackoverflow/final* gs://np-public-training-temp/stackoverflow/
+```
 
 ```
