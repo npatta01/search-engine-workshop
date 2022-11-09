@@ -23,6 +23,9 @@ dependencies:
       - papermill==2.3.*
       - rank_bm25==0.2.*
       - faiss_cpu==1.7.*
+      - datasets==2.6.*
+      - sentence-transformers==2.2.*
+      - transformers==4.24.*
 
 
 
