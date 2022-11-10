@@ -49,3 +49,26 @@ gsutil -m cp -r gs://np-training-tmp/stackoverflow/final* gs://np-public-trainin
 ```
 
 ```
+
+
+
+
+```
+zip -r data_processed.zip data/processed/
+
+gh release delete v1.0
+
+gh release create v1.0 'data_processed.zip#Hugging Face Dataset of Unsplashed collection' \
+--title "v1.0" --notes "initial release"
+
+
+```
+
+
+
+```
+zip -r /tmp/data.zip data/
+gsutil cp /tmp/data.zip gs://np-public-training-tmp/search-workshop/data.zip
+
+
+```

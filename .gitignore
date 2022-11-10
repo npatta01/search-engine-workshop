@@ -142,3 +142,4 @@ tmp/
 
 !/**/.gitkeep
 workshop_infra/keyfile.json
+*.zip

@@ -38,6 +38,7 @@ RUN bash /tmp/scripts/build_setup_user.sh
 
 COPY --chown=${NB_UID}:${NB_GID} . /tmp/workshop/
 
+
 ENV PATH="/opt/google-cloud-sdk/bin:${PATH}" 
 
 
