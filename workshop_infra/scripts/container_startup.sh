@@ -8,9 +8,11 @@
 
 echo $pwd
 
+GIT_BRANCH="v2"
+GIT_BRANCH="main"
 
 echo "cloning repo"
-git clone --depth 1 https://github.com/npatta01/search-engine-workshop.git -b v2
+git clone --depth 1 https://github.com/npatta01/search-engine-workshop.git -b $GIT_BRANCH
 
 
 cd search-engine-workshop

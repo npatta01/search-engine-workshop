@@ -28,10 +28,3 @@ dependencies:
       - transformers==4.24.*
 
 
-
-# 
-#- google-cloud-bigquery-storage==2.16.* 
-      #- modin[ray]
-      # - pymilvus==1.1.0
-      #- pandas-gbq==0.17.*
-      #- git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[faiss]
