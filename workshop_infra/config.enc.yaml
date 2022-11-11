@@ -17,10 +17,10 @@ cull:
     every: 300
 singleuser:
     cpu:
-        limit: 8
-        guarantee: 8
+        limit: 4
+        guarantee: 4
     memory:
-        limit: 16G
+        limit: 8G
         guarantee: 8G
     image:
         # You should replace the "latest" tag with a fixed version from:
@@ -44,6 +44,7 @@ singleuser:
             - name: gcsfs-creds
               mountPath: /etc/secrets
               readOnly: true
+        type: none
     lifecycleHooks:
         postStart:
             exec:
@@ -123,8 +124,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-11-02T07:31:42Z"
-    mac: ENC[AES256_GCM,data:X4n596GjkZ8aRAd13xBIRtGwyKITIVcAb2bLT18vkCtpNm4PfcNyizffKcucNWO1i9UtQeDC0nTN7BVlu63UUANQxhla47XCYwBbivb/cq6HTg9qWn1d2AT6hnn/ffM+YuKqPK6cQIxAlD8tPQaYq0GJo6yaE7d9xnJjAQAYv14=,iv:hpKiQEtAx3L9m+t4VM0pJyE4BJBu9NpyzuoOVIj+VzI=,tag:maSfVUWHRVkB8oMQGbo7TQ==,type:str]
+    lastmodified: "2022-11-11T00:47:03Z"
+    mac: ENC[AES256_GCM,data:DW9zOv9PRBeBFwn+ooleWgtLFlka+147hUBBCL7DEx+CWrmlNDnYp8JOFO1D1byGcllgpvDkzJzSq0BFYxQkQKPVLjm0VPtj2hcvUrybJbgyDBM12AlG8x6a3DeKWABryTnEvB2X8VDyBIDD0ZFqANzG/b2R8xm/mTExcHRzBQI=,iv:9eHk6twE3tVmgJYFPJRweKYY5xBWkYDnsQxE+bRXKzA=,tag:1Kx/VVsvmcnHEDjv4jKuog==,type:str]
     pgp: []
     encrypted_regex: ^(client_id|client_secret)$
     version: 3.7.3

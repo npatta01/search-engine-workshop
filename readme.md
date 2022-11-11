@@ -15,25 +15,25 @@ If you came to this repo, during a workshop visit this custom [jupyter hub](http
 The repo is located at [npatta01/search-engine-workshop](https://github.com/npatta01/search-engine-workshop)
 
 
-## Content
+## Content (Notebooks)
 
-### Notebooks
 
-0. Data Fetching
+**Data Fetching**
 
-[notebook](notebooks/00_setup_dataset.ipynb)
-[notebook](notebooks/00_setup_stats.ipynb)
+[setup notebook](notebooks/00_setup_dataset.ipynb)    
+[stats notebook](notebooks/00_setup_stats.ipynb)
 
 Notebooks to download unsplash dataset and save as hugging face dataset format
 
-1. Non Deep Learning Retrieval
 
-BM25 retrieval: [Link](notebooks/01_bm25.ipynb)
+**Non Deep Learning Retrieval**
 
-BM25 retrieval with elastic search: [Link](notebooks/01_bm25_elastic.ipynb)
+BM25 retrieval: [notebook](notebooks/01_bm25.ipynb)
+
+BM25 retrieval with elastic search: [notebook](notebooks/01_bm25_elastic.ipynb)
 
 
-2. Deep Learning Retrieval (text)
+**Deep Learning Retrieval (text)**
 
 
 Text Deep Learning retrieval: [Link](notebooks/02_dense_retriever.ipynb)
@@ -41,12 +41,12 @@ Text Deep Learning retrieval: [Link](notebooks/02_dense_retriever.ipynb)
 Text Deep Learning retrieval with Milvus: [Link](notebooks/02_dense_retriever_milvus.ipynb)
 
 
-3. Deep Learning Retrieval (image)
+**Deep Learning Retrieval (image)**
 
 
 Clip Retrieval: [Link](notebooks/03_clip_embed.ipynb)
 
-4. ANN
+**ANN**
 
 Shows how to speed up Deep Learning retrieval by exploring different ANN indexes
 [Link](notebooks/04_ann.ipynb) 
@@ -56,10 +56,10 @@ Shows how to speed up Deep Learning retrieval by exploring different ANN indexes
 
 ## Slides
 
-[PyData NYC 2022 Slides][assets/slides_pydatanyc2022.pdf)
+[PyData NYC 2022](assets/slides_pydatanyc2022.pdf)
 
 
-[ODSC 2022 Slides][assets/slides_odsc2022.pdf) 
+[ODSC 2022](assets/slides_odsc2022.pdf) 
 
 
 ## Contact
@@ -78,7 +78,7 @@ For help or feedback, please reach out to :
 
 This workshop uses Unsplash Lite Dataset 1.2.0 [link](unsplash.com/data)
 
-
+The hands on portion of the workshop was made possible due to [JupyterHub Helm Chart](https://github.com/jupyterhub/helm-chart)
 
 ## Changelog
 

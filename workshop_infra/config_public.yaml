@@ -17,11 +17,11 @@ cull:
     every: 300
 singleuser:
     cpu:
-        limit: 5
-        guarantee: 5
+        limit: 4
+        guarantee: 4
     memory:
-        limit: 30G
-        guarantee: 30G
+        limit: 8G
+        guarantee: 8G
     image:
         # You should replace the "latest" tag with a fixed version from:
         # https://hub.docker.com/r/jupyter/datascience-notebook/tags/

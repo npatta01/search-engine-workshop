@@ -140,6 +140,8 @@ download storage key
 gcloud iam service-accounts keys create workshop_infra/keyfile.json \
     --iam-account=public-storage-reader-sa@np-public-training.iam.gserviceaccount.com
 
+gsutil cp gs://np-training-private/service_accounts/keyfile.json workshop_infra/keyfile.json
+
 kubectl create secret generic gcsfs-creds --from-file=workshop_infra/keyfile.json --namespace $HELM_NAMESPACE
 
 
