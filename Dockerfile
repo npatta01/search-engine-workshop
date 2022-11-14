@@ -49,3 +49,6 @@ ENV PATH="/opt/google-cloud-sdk/bin:${PATH}"
 # RUN papermill /tmp/setup.ipynb /tmp/setup__out.ipynb -k python3 --log-output --log-level INFO --progress-bar && \
 #     fix-permissions "${CONDA_DIR}" && \
 #     fix-permissions "/home/${NB_USER}"
+
+
+ENTRYPOINT [ "bash" "/tmp/scripts/container_startup.sh " ]
