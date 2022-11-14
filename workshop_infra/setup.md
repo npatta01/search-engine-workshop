@@ -168,7 +168,7 @@ helm repo update
 build docker image
 
 ```bash
-docker build -t gcr.io/$GCP_PROJECT/semantic-search-workshop:v1.0 .
+docker build -t gcr.io/$GCP_PROJECT/semantic-search-workshop:v1.0  -e PRE_DOWNLOAD=TRUE .
 docker push gcr.io/$GCP_PROJECT/semantic-search-workshop:v1.0
 
 ```
