@@ -51,4 +51,4 @@ ENV PATH="/opt/google-cloud-sdk/bin:${PATH}"
 #     fix-permissions "/home/${NB_USER}"
 
 
-CMD [ "bash" , "/tmp/scripts/container_startup.sh " ]
+CMD [ "bash" , "/tmp/scripts/container_startup.sh" ]
