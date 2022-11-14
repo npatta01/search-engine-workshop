@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash /tmp/scripts/container_startup.sh
