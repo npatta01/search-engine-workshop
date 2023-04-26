@@ -19,6 +19,7 @@ USER $NB_UID
 
 # Install from requirements.txt file
 COPY --chown=${NB_UID}:${NB_GID} environment.yaml /tmp/
+COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
 
 RUN mamba env update -n base -f /tmp/environment.yaml && \
     fix-permissions "${CONDA_DIR}" && \
