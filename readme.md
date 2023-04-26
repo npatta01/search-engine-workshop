@@ -14,6 +14,8 @@ If you came to this repo, during a workshop visit this custom [jupyter hub](http
 
 The repo is located at [npatta01/search-engine-workshop](https://github.com/npatta01/search-engine-workshop)
 
+To use this repo outside a workshop, please use Binder
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/npatta01/search-engine-workshop/main)
 
 ## Content (Notebooks)
 
