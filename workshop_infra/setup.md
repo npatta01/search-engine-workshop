@@ -18,7 +18,7 @@ NODE_TYPE_DEFAULT="e2-standard-2"
 
 CLUSTER_NAME=workshop
 NODES_MIN=0
-NODES_MAX=200
+NODES_MAX=400
 
 EMAIL="npatta01@gmail.com"
 GCP_PROJECT="np-public-training"

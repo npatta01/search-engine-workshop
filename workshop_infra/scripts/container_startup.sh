@@ -6,10 +6,11 @@
 #cp -r /tmp/workshop /home/jovyan
 
 
+
 echo $pwd
 
-GIT_BRANCH="v2"
-GIT_BRANCH="main"
+GIT_BRANCH="pydata_seattle"
+#GIT_BRANCH="main"
 
 echo "cloning repo"
 git clone --depth 1 https://github.com/npatta01/search-engine-workshop.git -b $GIT_BRANCH
