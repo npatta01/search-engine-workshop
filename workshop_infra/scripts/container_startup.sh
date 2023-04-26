@@ -25,7 +25,7 @@ if wget --spider $url 2>/dev/null; then
   
   echo "getting data from gcs"
   wget $url 
-  unzip data.zip
+  unzip -q data.zip
 else
   echo "getting from github"
   wget https://github.com/npatta01/search-engine-workshop/releases/download/v1.0/data_processed.zip

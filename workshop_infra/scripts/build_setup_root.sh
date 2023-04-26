@@ -7,7 +7,7 @@
 
 #pip install milvus==2.1.*
 apt-get update --yes
-apt-get install --yes --no-install-recommends build-essential libsasl2-dev gfortran
+apt-get install --yes --no-install-recommends build-essential libsasl2-dev gfortran pigz
 
 #python -c "import milvus; milvus.before()"
 
