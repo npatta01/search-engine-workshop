@@ -20,15 +20,15 @@ The repo is located at [npatta01/search-engine-workshop](https://github.com/npat
 
 **Data Fetching**
 
-[setup notebook](notebooks/00_setup_dataset.ipynb)    
-[stats notebook](notebooks/00_setup_stats.ipynb)
+[setup notebook](notebooks/00_a_setup_dataset.ipynb)        
+[stats notebook](notebooks/00_b_setup_stats.ipynb)     
+[sample image notebook](notebooks/00_c_sample_images.ipynb)
+
 
 Notebooks to download unsplash dataset and save as hugging face dataset format
 
 
 **Non Deep Learning Retrieval**
-
-BM25 retrieval: [notebook](notebooks/01_bm25.ipynb)
 
 BM25 retrieval with elastic search: [notebook](notebooks/01_bm25_elastic.ipynb)
 
@@ -37,8 +37,6 @@ BM25 retrieval with elastic search: [notebook](notebooks/01_bm25_elastic.ipynb)
 
 
 Text Deep Learning retrieval: [Link](notebooks/02_dense_retriever.ipynb)
-
-Text Deep Learning retrieval with Milvus: [Link](notebooks/02_dense_retriever_milvus.ipynb)
 
 
 **Deep Learning Retrieval (image)**
@@ -55,6 +53,8 @@ Shows how to speed up Deep Learning retrieval by exploring different ANN indexes
 
 
 ## Slides
+
+[PyData Seattle 2022](assets/slides_pydataseattle2023.pdf)
 
 [PyData NYC 2022](assets/slides_pydatanyc2022.pdf)
 
