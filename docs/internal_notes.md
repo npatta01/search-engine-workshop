@@ -11,17 +11,17 @@ sudo apt update && sudo apt install -y p7zip-full
 Create conda environemnt
 
 ```bash
-conda create -n stackoverflow python=3.7 mamba
-conda activate stackoverflow
-mamba env update -n stackoverflow -f environment.yaml 
+conda create -n workshop python=3.7 mamba
+conda activate workshop
+mamba env update -n workshop -f environment.yaml 
 # mamba install anaconda jupyter ipykernel nb_conda_kernels
 
 mamba install ipython ipykernel nb_conda_kernels
 
-ipython kernel install --user --name=stackoverflow
+ipython kernel install --user --name=workshop
 
 
-conda create --name stackoverflow --clone base
+conda create --name workshop --clone base
 
 ```
 

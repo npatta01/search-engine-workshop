@@ -1,0 +1,22 @@
+elasticsearch==8.7.*
+pandarallel==1.6.*
+jupyterlab-execute-time==2.3.*
+ipywidgets==8.0.*
+datasets==2.6.*
+gcsfs==2023.1.*
+rank_bm25==0.2.*
+faiss_cpu==1.7.*
+sentence-transformers==2.2.*
+transformers==4.28.*
+papermill==2.4.*
+cloudpickle==2.2.*
+rich==13.3.*
+ipyplot==1.1.*
+
+# pyarrow<11.0.*
+# google-cloud-bigquery-storage 
+# weaviate-client==3.8.0
+# datasets==2.6.*
+# milvus==2.1.*
+# rich==12.6.*
+# papermill==2.4.*

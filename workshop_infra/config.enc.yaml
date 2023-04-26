@@ -30,20 +30,20 @@ singleuser:
         name: gcr.io/np-public-training/semantic-search-workshop
         tag: v1.0
     #defaultUrl: /lab
-    extraEnv:
-        GOOGLE_APPLICATION_CREDENTIALS: /etc/secrets/keyfile.json
+    # extraEnv:
+    #     GOOGLE_APPLICATION_CREDENTIALS: /etc/secrets/keyfile.json
     storage:
-        extraVolumes:
-            - name: gcsfs-creds
-              secret:
-                secretName: gcsfs-creds
-                items:
-                    - key: keyfile.json
-                      path: keyfile.json
-        extraVolumeMounts:
-            - name: gcsfs-creds
-              mountPath: /etc/secrets
-              readOnly: true
+        # extraVolumes:
+        #     - name: gcsfs-creds
+        #       secret:
+        #         secretName: gcsfs-creds
+        #         items:
+        #             - key: keyfile.json
+        #               path: keyfile.json
+        # extraVolumeMounts:
+        #     - name: gcsfs-creds
+        #       mountPath: /etc/secrets
+        #       readOnly: true
         type: none
     lifecycleHooks:
         postStart:
@@ -54,7 +54,7 @@ singleuser:
                     - bash /tmp/workshop/workshop_infra/scripts/container_startup.sh
     extraContainers:
         - name: elastic-search
-          image: elasticsearch:8.4.3
+          image: elasticsearch:8.7.0
           env:
             - name: discovery.type
               value: single-node
@@ -62,23 +62,23 @@ singleuser:
               value: "false"
             - name: ES_JAVA_OPTS
               value: -Xms1g -Xmx1g
-        - name: milvus
-          image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
-        - name: weaviate
-          image: semitechnologies/weaviate:1.14.0
-          env:
-            - name: QUERY_DEFAULTS_LIMIT
-              value: "25"
-            - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
-              value: "true"
-            - name: PERSISTENCE_DATA_PATH
-              value: /var/lib/weaviate
-            - name: DEFAULT_VECTORIZER_MODULE
-              value: none
-            - name: ENABLE_MODULES
-              value: ""
-            - name: CLUSTER_HOSTNAME
-              value: node1
+              # - name: milvus
+              #   image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
+              # - name: weaviate
+              #   image: semitechnologies/weaviate:1.14.0
+              #   env:
+              #     - name: QUERY_DEFAULTS_LIMIT
+              #       value: "25"
+              #     - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+              #       value: "true"
+              #     - name: PERSISTENCE_DATA_PATH
+              #       value: /var/lib/weaviate
+              #     - name: DEFAULT_VECTORIZER_MODULE
+              #       value: none
+              #     - name: ENABLE_MODULES
+              #       value: ""
+              #     - name: CLUSTER_HOSTNAME
+              #       value: node1
 # proxy:
 #   https:
 #     enabled: true
@@ -124,8 +124,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-11-11T00:47:03Z"
-    mac: ENC[AES256_GCM,data:DW9zOv9PRBeBFwn+ooleWgtLFlka+147hUBBCL7DEx+CWrmlNDnYp8JOFO1D1byGcllgpvDkzJzSq0BFYxQkQKPVLjm0VPtj2hcvUrybJbgyDBM12AlG8x6a3DeKWABryTnEvB2X8VDyBIDD0ZFqANzG/b2R8xm/mTExcHRzBQI=,iv:9eHk6twE3tVmgJYFPJRweKYY5xBWkYDnsQxE+bRXKzA=,tag:1Kx/VVsvmcnHEDjv4jKuog==,type:str]
+    lastmodified: "2023-04-26T01:39:50Z"
+    mac: ENC[AES256_GCM,data:cDB37QZ0UxitWQTSkpQCWJLc1lLfiiqWTbjujMAJi6FB7MryXEaQU7k/8vueuV2+/3k1Zhp++H68SB3zZWJ9XBg4UXsUkLTgqlCQ9Fv3M2rrwVL/h1LQ7wqHVlnvEySy+qODb0PoXS3QfUShOvrPNPf/ZtFHWIRYrfJEprkTys0=,iv:xMc7R4v+PNMFh9DXYxKVnPr9v81MbPqNDq5AVQcwYW4=,tag:Jp8+haROua5fHqWovZNb+Q==,type:str]
     pgp: []
     encrypted_regex: ^(client_id|client_secret)$
     version: 3.7.3

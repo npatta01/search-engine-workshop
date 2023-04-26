@@ -30,20 +30,21 @@ singleuser:
         name: gcr.io/np-public-training/semantic-search-workshop
         tag: v1.0
     #defaultUrl: /lab
-    extraEnv:
-        GOOGLE_APPLICATION_CREDENTIALS: /etc/secrets/keyfile.json
+    # extraEnv:
+    #     GOOGLE_APPLICATION_CREDENTIALS: /etc/secrets/keyfile.json
     storage:
-        extraVolumes:
-            - name: gcsfs-creds
-              secret:
-                secretName: gcsfs-creds
-                items:
-                    - key: keyfile.json
-                      path: keyfile.json
-        extraVolumeMounts:
-            - name: gcsfs-creds
-              mountPath: /etc/secrets
-              readOnly: true
+      type: none
+        # extraVolumes:
+        #     - name: gcsfs-creds
+        #       secret:
+        #         secretName: gcsfs-creds
+        #         items:
+        #             - key: keyfile.json
+        #               path: keyfile.json
+        # extraVolumeMounts:
+        #     - name: gcsfs-creds
+        #       mountPath: /etc/secrets
+        #       readOnly: true
     lifecycleHooks:
         postStart:
             exec:
@@ -53,7 +54,7 @@ singleuser:
                     - "bash /tmp/workshop/workshop_infra/scripts/container_startup.sh"
     extraContainers:
         - name: elastic-search
-          image: elasticsearch:8.4.3
+          image: elasticsearch:8.7.0
           env:
             - name: discovery.type
               value: single-node
@@ -61,23 +62,23 @@ singleuser:
               value: "false"
             - name: ES_JAVA_OPTS
               value: -Xms1g -Xmx1g
-        - name: milvus
-          image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
-        - name: weaviate
-          image: semitechnologies/weaviate:1.14.0
-          env:
-            - name: QUERY_DEFAULTS_LIMIT
-              value: "25"
-            - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
-              value: "true"
-            - name: PERSISTENCE_DATA_PATH
-              value: /var/lib/weaviate
-            - name: DEFAULT_VECTORIZER_MODULE
-              value: none
-            - name: ENABLE_MODULES
-              value: ""
-            - name: CLUSTER_HOSTNAME
-              value: node1
+        # - name: milvus
+        #   image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
+        # - name: weaviate
+        #   image: semitechnologies/weaviate:1.14.0
+        #   env:
+        #     - name: QUERY_DEFAULTS_LIMIT
+        #       value: "25"
+        #     - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+        #       value: "true"
+        #     - name: PERSISTENCE_DATA_PATH
+        #       value: /var/lib/weaviate
+        #     - name: DEFAULT_VECTORIZER_MODULE
+        #       value: none
+        #     - name: ENABLE_MODULES
+        #       value: ""
+        #     - name: CLUSTER_HOSTNAME
+        #       value: node1
 # proxy:
 #   https:
 #     enabled: true
