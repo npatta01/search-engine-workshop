@@ -3,60 +3,59 @@
 
 ## About
 
-Handson workshop for building a semantic search engine.
+Hands-on workshop for building a semantic search engine.
 
 
 
 
 ## Setup 
 
-If you came to this repo, during a workshop visit this custom [jupyter hub](http://hub.np.training) with all the dependencies already set up.
+During the workshop, use this custom [JupyterHub](http://hub.np.training), which has all dependencies preinstalled.
 
 The repo is located at [npatta01/search-engine-workshop](https://github.com/npatta01/search-engine-workshop)
 
-To use this repo outside a workshop, please use Binder
+To use this repository outside a workshop, use Binder:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/npatta01/search-engine-workshop/main)
 
 ## Content (Notebooks)
 
 
-**Data Fetching**
+**Data fetching**
 
-[setup notebook](notebooks/00_a_setup_dataset.ipynb)        
-[stats notebook](notebooks/00_b_setup_stats.ipynb)     
-[sample image notebook](notebooks/00_c_sample_images.ipynb)
-
-
-Notebooks to download unsplash dataset and save as hugging face dataset format
+- [Setup notebook](notebooks/00_a_setup_dataset.ipynb)
+- [Statistics notebook](notebooks/00_b_setup_stats.ipynb)
+- [Sample image notebook](notebooks/00_c_sample_images.ipynb)
 
 
-**Non Deep Learning Retrieval**
-
-BM25 retrieval with elastic search: [notebook](notebooks/01_bm25_elastic.ipynb)
+These notebooks download the Unsplash dataset and save it in Hugging Face dataset format.
 
 
-**Deep Learning Retrieval (text)**
+**Non-deep-learning retrieval**
+
+BM25 retrieval with Elasticsearch: [notebook](notebooks/01_bm25_elastic.ipynb)
 
 
-Text Deep Learning retrieval: [Link](notebooks/02_dense_retriever.ipynb)
+**Deep-learning retrieval (text)**
 
 
-**Deep Learning Retrieval (image)**
+Text-based deep-learning retrieval: [notebook](notebooks/02_dense_retriever.ipynb)
 
 
-Clip Retrieval: [Link](notebooks/03_clip_embed.ipynb)
+**Deep-learning retrieval (image)**
+
+
+CLIP retrieval: [notebook](notebooks/03_clip_embed.ipynb)
 
 **ANN**
 
-Shows how to speed up Deep Learning retrieval by exploring different ANN indexes
-[Link](notebooks/04_ann.ipynb) 
+Explore approximate nearest-neighbor indexes for faster deep-learning retrieval: [notebook](notebooks/04_ann.ipynb)
 
 
 
 
 ## Slides
 
-[PyData Seattle 2022](assets/slides_pydataseattle2023.pdf)
+[PyData Seattle 2023](assets/slides_pydataseattle2023.pdf)
 
 [PyData NYC 2022](assets/slides_pydatanyc2022.pdf)
 
@@ -66,7 +65,7 @@ Shows how to speed up Deep Learning retrieval by exploring different ANN indexes
 
 ## Contact
 
-For help or feedback, please reach out to :
+For help or feedback, please reach out to:
 
 - [Nidhin Pattaniyil](https://www.linkedin.com/in/nidhinpattaniyil/)   
 - [Ravi Yadav](https://www.linkedin.com/in/ravi-kumar-yadav-535b268/)   
@@ -78,16 +77,16 @@ For help or feedback, please reach out to :
 
 ## Acknowledgments
 
-This workshop uses Unsplash Lite Dataset 1.2.0 [link](unsplash.com/data)
+This workshop uses the [Unsplash Lite Dataset 1.2.0](https://unsplash.com/data).
 
-The hands on portion of the workshop was made possible due to [JupyterHub Helm Chart](https://github.com/jupyterhub/helm-chart)
+The hands-on portion of the workshop was made possible by the [JupyterHub Helm Chart](https://github.com/jupyterhub/helm-chart).
 
 ## Changelog
 
 **v1.1**
-- setup for PyDataNYC
-- replaced stackoverflow data with unsplash data
+- Set up for PyData NYC
+- Replaced Stack Overflow data with Unsplash data
 
 **v1.0**
-- setup for ODSC
-- used stackoverflow data
+- Set up for ODSC
+- Used Stack Overflow data
