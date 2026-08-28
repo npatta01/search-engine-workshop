@@ -65,7 +65,7 @@ singleuser:
               # - name: milvus
               #   image: gcr.io/np-public-training/custom-milvus:v2.1.4-1
               # - name: weaviate
-              #   image: semitechnologies/weaviate:1.14.0
+              #   image: cr.weaviate.io/semitechnologies/weaviate:1.14.0
               #   env:
               #     - name: QUERY_DEFAULTS_LIMIT
               #       value: "25"
